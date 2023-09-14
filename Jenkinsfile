@@ -31,7 +31,13 @@ pipeline {
 		//  do nothing if there is an exception
 	}
 }
-
+stage('Remove Previous Container'){
+	try{
+		sh 'docker rm -f tomcattest'
+	}catch(error){
+		//  do nothing if there is an exception
+	}
+}
         stage("Deploy") {
     steps {
         echo "Deploying the container"
