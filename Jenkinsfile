@@ -27,7 +27,7 @@ pipeline {
         stage("Deploy"){
             steps {
                 echo "Deploying the container"
-                sh "docker-compose down && docker-compose up -d"
+                sh 'docker run -d -p 5000:80 --name guvigeek imfuzail/guvi-geek:latest'
                 
             }
         }
