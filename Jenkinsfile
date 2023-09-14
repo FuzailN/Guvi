@@ -5,7 +5,7 @@ pipeline {
         stage("Clone Code"){
             steps {
                 echo "Cloning the code"
-                git url:"https://github.com/FuzailN/Guvi_Geek.git", branch: "main"
+                git url:"https://github.com/FuzailN/Guvi.git", branch: "main"
             }
         }
         stage("Build"){
