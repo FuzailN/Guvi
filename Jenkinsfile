@@ -39,7 +39,7 @@ pipeline {
         stage("Deploy") {
             steps {
                 echo "Deploying the container"
-                sh 'docker run -d -p 80:5000 --name guvigeek imfuzail/guvi-geek:latest'
+                sh 'docker run -d -p 8000:5000 --name guvigeek imfuzail/guvi-geek:latest'
             }
         }
     }
