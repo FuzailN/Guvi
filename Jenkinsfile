@@ -24,10 +24,20 @@ pipeline {
                 }
             }
         }
-        stage("Deploy"){
-            steps {
-                echo "Deploying the container"
-                sh 'docker run -d -p 5000:80 --name guvigeek imfuzail/guvi-geek:latest'
+        stage('Remove Previous Container'){
+	try{
+		sh 'docker rm -f tomcattest'
+	}catch(error){
+		//  do nothing if there is an exception
+	}
+}
+
+        stage("Deploy") {
+    steps {
+        echo "Deploying the container"
+        sh 'docker run -d -p 80:5000 --name guvigeek imfuzail/guvi-geek:latest'
+    }
+}
                 
             }
         }
